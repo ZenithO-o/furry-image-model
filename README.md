@@ -13,9 +13,10 @@ Hey there! This is my project on labeling furry artwork!
 
 Since models are very large, you need to download them separately. Here are some links for you to do this:
 
-| Model Name       | Link                                                                                     |
-|------------------|------------------------------------------------------------------------------------------|
-| effnet_b3_300_2c | [link](https://drive.google.com/uc?export=download&id=1n-qEMXU86G8A_UEpZ9_CmAPWdBkMO_zY) |
+| Model Name                | Acc | Size         | Zip File                                                                                 |
+|---------------------------|-----|--------------|------------------------------------------------------------------------------------------|
+| efficientnet_v2_b3_300_2c | ??? | 14.1M params | [link](https://drive.google.com/uc?export=download&id=1n-qEMXU86G8A_UEpZ9_CmAPWdBkMO_zY) |
+| mobilenet_v3_224_3c       | ??? | ???          | coming soon                                                                              |
 
 ## Model Architecture
 
