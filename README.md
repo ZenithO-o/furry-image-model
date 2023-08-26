@@ -6,14 +6,16 @@ Hey there! This is my project on labeling furry artwork! (write more here)
 1. Create a python enviornment using your favorite flavor of enviornment creation (venv, conda, etc).
 2. Use `pip install -r requirements.txt` in the root directory of this project to install all dependencies required for this project.
 3. Follow [the appropriate steps](https://www.tensorflow.org/install/pip) for installing GPU accelerated TensorFlow (if necessary).
-4. Download example models from the Model list (below)
+4. Download a model from the Model List (below).
 5. Try out the [Jupyter Notebook](./example_usage.ipynb) to see how to use this project!
 
 ## Model List
 
-| Model Name       | Link       |
-|------------------|------------|
-| effnet_b3_300_2c | [here](hi) |
+Since models are very large, you need to download them separately. Here are some links for you to do this:
+
+| Model Name       | Link                                                                                     |
+|------------------|------------------------------------------------------------------------------------------|
+| effnet_b3_300_2c | [link](https://drive.google.com/uc?export=download&id=1n-qEMXU86G8A_UEpZ9_CmAPWdBkMO_zY) |
 
 ## Model Architecture
 

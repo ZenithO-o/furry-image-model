@@ -126,8 +126,6 @@ class FurryImageModel:
                 mlb: MultiLabelBinarizer
                 tags = mlb.inverse_transform(result_mask)
                 values = [result[i, np.where(result_mask[i])][0] for i in range(num_images)]
-
-                
             
             if return_values:
                 for i in range(num_images):
@@ -152,7 +150,6 @@ class FurryImageModel:
         
         return res
         
-            
         
     def image_latent_vector(self, *img_path: typing.Union[str, os.PathLike]) -> np.ndarray:
         """Get the feature vector representation of an image.
