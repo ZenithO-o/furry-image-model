@@ -1,0 +1,6 @@
+ambiguous_gender
+crossgender
+female
+intersex
+male
+young
