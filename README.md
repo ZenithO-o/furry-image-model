@@ -1,5 +1,5 @@
-# furry-tagger
-Hey there! This is my project on labeling furry artwork! (write more here)
+# Furry Image Model
+Hey there! This is my project on labeling furry artwork!
 
 ## How To Use
 
@@ -21,7 +21,7 @@ Since models are very large, you need to download them separately. Here are some
 
 This model uses multiple prediction heads in order to predict for the 6 different categories. These categories are `action`, `body`, `clothing` `identity`, `rating`, and `species`. In the `./categories/` folder, you can see a detailed description of all the tags for each category.
 
-Here is an image showcasing a model (`effnet_b3_300_2c`):
+Here is an image showcasing the model `effnet_b3_300_2c`:
 
 ![Image of model's architecture. Starts with an Input layer](images/readme/model_architecture.png)
 

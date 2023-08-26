@@ -161,5 +161,4 @@ cython_debug/
 
 
 # models
-models/*
-./models/
+models/*/
