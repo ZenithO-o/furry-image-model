@@ -13,10 +13,12 @@ Hey there! This is my project on labeling furry artwork!
 
 Since models are very large, you need to download them separately. Here are some links for you to do this:
 
-| Model Name                | Acc | Size         | Zip File                                                                                 |
-|---------------------------|-----|--------------|------------------------------------------------------------------------------------------|
-| efficientnet_v2_b3_300_2c | ??? | 14.1M params | [link](https://drive.google.com/uc?export=download&id=1n-qEMXU86G8A_UEpZ9_CmAPWdBkMO_zY) |
-| mobilenet_v3_224_3c       | ??? | ???          | coming soon                                                                              |
+**WARNING** Accuracy is misleading in this context. Recall is a better measure of performance in this context.
+
+| Model Name                | F1-Score | Recall | Precision | Accuracy | Size         | Zip File                                                                                 |
+|---------------------------|----------|--------|-----------|----------|--------------|------------------------------------------------------------------------------------------|
+| efficientnet_v2_b3_300_2c | 0.50     | 0.37   | 0.74      | 0.94     | 14.1M params | [link](https://drive.google.com/uc?export=download&id=1n-qEMXU86G8A_UEpZ9_CmAPWdBkMO_zY) |
+| mobilenet_v3_224_3c       | 0.29     | 0.18   | 0.71      | 0.94     |  3.1M params | coming soon                                                                              |
 
 ## Model Architecture
 

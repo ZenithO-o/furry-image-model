@@ -162,3 +162,9 @@ cython_debug/
 
 # models
 models/*/
+
+
+# My own scoring tests for the model
+testing/
+tags.txt
+testing.ipynb
