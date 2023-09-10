@@ -23,7 +23,7 @@ class FurryImageModel:
         self.tf_config = self.full_model.get_config()
         self.img_size = self.tf_config['layers'][0]['config']['batch_input_shape'][1]
         self.channels = self.tf_config['layers'][0]['config']['batch_input_shape'][3]
-        self.layer_order = [layer[0][:layer[0].find('_')] for layer in self.tf_config['output_layers']]
+        self.layer_order = [layer[0][:layer[0].find('_')] if layer[0].find('_') != -1 else layer[0] for layer in self.tf_config['output_layers']]
         
         # load multilabel binarizers for model
         self.mlbs = {}
@@ -106,9 +106,10 @@ class FurryImageModel:
             raise ValueError('The threshold must be within [0.0, 1.0]')
         
         loaded_images = [self._load_image(img) for img in img_path]
+        images = tf.convert_to_tensor(loaded_images)
         num_images = len(loaded_images)
-        
-        x = self.full_model.predict(tf.convert_to_tensor(loaded_images))
+        print(images.shape)
+        x = self.full_model.predict(images)
         
         res = [[] for _ in range(num_images)]
         for layer, result in zip(self.layer_order, x):
@@ -120,7 +121,6 @@ class FurryImageModel:
             else:
                 result = np.array(result)
                 result_mask = np.where(result > t, 1, 0)
-                
                 mlb = self.mlbs.get(layer)
                 
                 mlb: MultiLabelBinarizer

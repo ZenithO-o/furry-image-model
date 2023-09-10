@@ -20,6 +20,17 @@ Since models are very large, you need to download them separately. Here are some
 | efficientnet_v2_b3_300_2c | 0.50     | 0.37   | 0.74      | 0.94     | 14.1M params | [link](https://drive.google.com/uc?export=download&id=1n-qEMXU86G8A_UEpZ9_CmAPWdBkMO_zY) |
 | mobilenet_v3_224_3c       | 0.29     | 0.18   | 0.71      | 0.94     |  3.1M params | coming soon                                                                              |
 
+### What do the Names mean?
+
+The format of the name is `<base_feature_model>_<img_size>_<num_cycles>`.
+- `base_feature_model` - just explains the model used as the backbone. Ex: "efficientnet_v2_b3"
+- `img_size` - size of the input. Ex: "300"
+- `num_cycles` - Number of epoch cycles went through, where a cycle is an epoch for each prediction head. Ex: "2c"
+
+### What do the metrics mean?
+
+
+
 ## Model Architecture
 
 This model uses multiple prediction heads in order to predict for the 6 different categories. These categories are `action`, `body`, `clothing` `identity`, `rating`, and `species`. In the `./categories/` folder, you can see a detailed description of all the tags for each category.
