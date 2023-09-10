@@ -106,9 +106,8 @@ class FurryImageModel:
             raise ValueError('The threshold must be within [0.0, 1.0]')
         
         loaded_images = [self._load_image(img) for img in img_path]
-        images = tf.convert_to_tensor(loaded_images)
         num_images = len(loaded_images)
-        print(images.shape)
+        images = tf.convert_to_tensor(loaded_images)
         x = self.full_model.predict(images)
         
         res = [[] for _ in range(num_images)]
