@@ -119,7 +119,7 @@ class FurryImageModel:
         
         loaded_images = [self._load_image(img) for img in img_path]
         if normalized:
-            loaded_images = [self._normalize_func(img) for img in loaded_images]
+            loaded_images = [self._normalize_func(img, normalized) for img in loaded_images]
         
         num_images = len(loaded_images)
         images = tf.convert_to_tensor(loaded_images)
