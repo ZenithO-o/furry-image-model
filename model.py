@@ -77,8 +77,20 @@ class FurryImageModel:
         else:
             return 'safe'
 
+    def _normalize_func(self, image, normalized):
+        img_mean = normalized[0]
+        img_stddev = normalized[1]
+
+        offset = tf.constant(img_mean, shape=[1, 1, 3])
+        image -= offset
+        scale = tf.constant(img_stddev, shape=[1, 1, 3])
+        image /= scale
+        return image
+
+        
     def predict_image_tags(self, *img_path: typing.Union[str, os.PathLike], 
-                           t: float = 0.5, 
+                           t: float = 0.5,
+                           normalized: typing.List[tuple] = [(0.5, 0.5, 0.5), (0.225, 0.225, 0.225)],
                            return_values: bool = True, 
                            return_concat: bool = True) -> typing.Any:
         """run full prediction model on image to predict tags
@@ -106,6 +118,9 @@ class FurryImageModel:
             raise ValueError('The threshold must be within [0.0, 1.0]')
         
         loaded_images = [self._load_image(img) for img in img_path]
+        if normalized:
+            loaded_images = [self._normalize_func(img) for img in loaded_images]
+        
         num_images = len(loaded_images)
         images = tf.convert_to_tensor(loaded_images)
         x = self.full_model.predict(images)
