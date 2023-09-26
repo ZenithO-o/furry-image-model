@@ -1,6 +1,8 @@
 # Furry Image Model
 Hey there! This is my project on labeling furry artwork!
 
+![Example of output](./images/readme/example.png)
+
 ## How To Use
 
 1. Create a python enviornment using your favorite flavor of enviornment creation (venv, conda, etc).
