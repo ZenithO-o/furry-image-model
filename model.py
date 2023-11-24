@@ -1,9 +1,12 @@
 import os
 import typing
 
+import pathlib
 import numpy as np
 import tensorflow as tf
 from sklearn.preprocessing import MultiLabelBinarizer
+
+file_path = pathlib.Path(__file__).parent.resolve()
 
 class FurryImageModel:
     def __init__(self, model_path: typing.Union[str, os.PathLike], safe_threshold: float = 1/3, explicit_threshold: float = 2/3) -> None:
@@ -29,7 +32,7 @@ class FurryImageModel:
         self.mlbs = {}
         self.tags = {}
         
-        category_dir = './categories/'
+        category_dir = file_path / 'categories'
         category_files = os.listdir(category_dir)
         for category in category_files:
             with open(os.path.join(category_dir, category)) as f:
