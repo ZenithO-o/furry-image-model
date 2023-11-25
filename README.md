@@ -17,11 +17,11 @@ Since models are very large, you need to download them separately. Here are some
 
 **WARNING:** Accuracy for tags is misleading in this context. Recall is a better measure of performance in this context.
 
-| Model Name                | F1-Score | Recall | Precision | Accuracy (Tags) | Accuracy (Rating) | Size         | Requires GPU | Zip File                                                                                 |
-|---------------------------|----------|--------|-----------|-----------------|-------------------|--------------|--------------|------------------------------------------------------------------------------------------|
-| convnext_tiny_224_5       | 0.58     | 0.46   | 0.78      | 0.95            | 0.779             | 29.1M params | ✅          | [link](https://drive.google.com/uc?export=download&id=1VIhh0yfhJuXXTFo_0XPnOeQp5ePqnjDW) |
-| efficientnet_v2_b3_300_2c | 0.50     | 0.37   | 0.74      | 0.94            | 0.728             | 14.1M params | ❌          | [link](https://drive.google.com/uc?export=download&id=1n-qEMXU86G8A_UEpZ9_CmAPWdBkMO_zY) |
-| mobilenet_v3_224_2c       | 0.29     | 0.18   | 0.71      | 0.94            | 0.680             |  3.1M params | ❌          | [link](https://drive.google.com/uc?export=download&id=1fh2VrLo-bKgGHIkLEQecwUltsuI0W0Tm) |
+| Model Name                | F1-Score | Recall | Precision | Accuracy (Tags) | Accuracy (Rating) | Size         | Normalized | Requires GPU | Zip File                                                                                 |
+|---------------------------|----------|--------|-----------|-----------------|-------------------|--------------|------------|--------------|------------------------------------------------------------------------------------------|
+| convnext_tiny_224_5       | 0.58     | 0.46   | 0.78      | 0.95            | 0.779             | 29.1M params |  `True`    | ✅          | [link](https://drive.google.com/uc?export=download&id=1VIhh0yfhJuXXTFo_0XPnOeQp5ePqnjDW) |
+| efficientnet_v2_b3_300_2c | 0.50     | 0.37   | 0.74      | 0.94            | 0.728             | 14.1M params |  `True`    | ❌          | [link](https://drive.google.com/uc?export=download&id=1n-qEMXU86G8A_UEpZ9_CmAPWdBkMO_zY) |
+| mobilenet_v3_224_2c       | 0.29     | 0.18   | 0.71      | 0.94            | 0.680             |  3.1M params |  `False`    | ❌          | [link](https://drive.google.com/uc?export=download&id=1fh2VrLo-bKgGHIkLEQecwUltsuI0W0Tm) |
 
 ### What do the Names mean?
 

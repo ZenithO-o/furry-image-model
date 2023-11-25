@@ -91,11 +91,9 @@ class FurryImageModel:
         return image
 
         
-    def predict_image_tags(self, *img_path: typing.Union[str, os.PathLike], 
+    def predict_image_tags(self, *img_path: typing.Union[str, os.PathLike],
                            t: float = 0.5,
-                           normalized: typing.List[tuple] = [(0.5, 0.5, 0.5), (0.225, 0.225, 0.225)],
-                           return_values: bool = True, 
-                           return_concat: bool = True) -> typing.Any:
+                           normalized: typing.List[tuple] = [(0.5, 0.5, 0.5), (0.225, 0.225, 0.225)],) -> typing.Any:
         """run full prediction model on image to predict tags
 
         Args:
@@ -103,12 +101,6 @@ class FurryImageModel:
             
             t (float, optional): The probablility threshold at which to accept a tag as 
             valid. Defaults to 0.5.
-            
-            return_values (bool, optional): Also return the assocciated probabilities for
-            each tag. Defaults to True.
-            
-            return_concat (bool, optional): Return everything in a singular list rather 
-            than individual lists for each category. Defaults to True.
 
         Returns:
             Any: Returns a list of all the tags predicted for each image.
@@ -132,8 +124,7 @@ class FurryImageModel:
         for layer, result in zip(self.layer_order, x):
             
             if layer == 'rating':
-                tags = [self._get_rating(r[0]) for r in result]
-                values = [r[0] for r in result]
+                out = [[{'tag': self._get_rating(r[0]), 'value': float(r[0]), 'category': layer}] for r in result]
                 
             else:
                 result = np.array(result)
@@ -143,28 +134,14 @@ class FurryImageModel:
                 mlb: MultiLabelBinarizer
                 tags = mlb.inverse_transform(result_mask)
                 values = [result[i, np.where(result_mask[i])][0] for i in range(num_images)]
+
+                out = [[{'tag': t, 'value': float(v), 'category': layer} for t,v in zip(t_list, v_list)] for t_list, v_list in zip(tags, values)]
+                print(tags, values)
             
-            if return_values:
-                for i in range(num_images):
-                    if layer == 'rating':
-                        res[i].append([(tags[i], values[i])])
-                    else:
-                        res[i].append(list(zip(tags[i], values[i])))
-            else:
-                for i in range(num_images):
-                    if layer == 'rating':
-                        res[i].append([tags[i]])
-                    else:
-                        res[i].append(tags[i])
-        
-        if return_concat:
+
             for i in range(num_images):
-                res[i] = [list(v) for v in res[i]]
-                res[i] = sum(res[i], [])
-                
-            
-            return res
-        
+                res[i].extend(out[i])
+
         return res
         
         
