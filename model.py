@@ -136,7 +136,6 @@ class FurryImageModel:
                 values = [result[i, np.where(result_mask[i])][0] for i in range(num_images)]
 
                 out = [[{'tag': t, 'value': float(v), 'category': layer} for t,v in zip(t_list, v_list)] for t_list, v_list in zip(tags, values)]
-                print(tags, values)
             
 
             for i in range(num_images):
